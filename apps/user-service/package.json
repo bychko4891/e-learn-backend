@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "migration:generate:dev": "cross-env ENV_PATH=apps/user-service/.env.dev ts-node -r tsconfig-paths/register node_modules/typeorm/cli.js migration:generate apps/user-service/migrations/InitUserDev -d apps/user-service/data-source.ts",
+    "migration:run:dev": "cross-env ENV_PATH=apps/user-service/.env.dev ts-node -r tsconfig-paths/register node_modules/typeorm/cli.js migration:run -d apps/user-service/data-source.ts",
+    "migration:generate:prod": "cross-env ENV_PATH=apps/user-service/.env.prod ts-node -r tsconfig-paths/register node_modules/typeorm/cli.js migration:generate apps/user-service/migrations/InitUserProd -d apps/user-service/data-source.ts",
+    "migration:run:prod": "cross-env ENV_PATH=apps/user-service/.env.prod ts-node -r tsconfig-paths/register node_modules/typeorm/cli.js migration:run -d apps/user-service/data-source.ts"
+  },
+  "dependencies": {
+    "@nestjs/axios": "^4.0.0",
+    "@nestjs/passport": "^11.0.5",
+    "axios": "^1.9.0",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/passport-jwt": "^4.0.1"
+  }
+}

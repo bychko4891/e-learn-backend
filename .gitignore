@@ -1,0 +1,59 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# NestJS specific
+dist/
+coverage/
+
+# WebStorm
+.idea/
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*
+.env.local
+.env.*.local
+/.env.prod
+/.env.dev
+
+# Typescript build output
+*.tsbuildinfo
+
+# Next.js / Nuxt.js (if used)
+.next/
+.nuxt/
+
+# Docker
+docker-compose.override.yml
+docker-compose.local.yml
+
+# Windows system files
+Thumbs.db
+
+# JetBrains specific
+.idea/
+
+# OS generated files
+Desktop.ini
+
+# Build output
+build/
+
+# Test coverage output
+coverage/
+
+# Temporary files from WebStorm
+*.iml
+
+# Jest testing output
+jest-global-setup.js
+
+# Dependency directories
+jspm_packages/
