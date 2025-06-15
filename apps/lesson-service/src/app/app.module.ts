@@ -1,16 +1,15 @@
 import { Module } from '@nestjs/common';
 import {ConfigModule, ConfigService} from '@nestjs/config';
+import {AuthUserModule} from "../authUser/AuthUserModule";
 import {TypeOrmModule} from "@nestjs/typeorm";
 import { join } from 'path';
 import {PassportModule} from "@nestjs/passport";
+import {RsaKeyModule} from "../rsaKey/RsaKeyModule";
+import {AuthModule} from "../auth/AuthModule";
+import {RsaKey} from "../rsaKey/RsaKey.entity";
+import {AuthUser} from "../authUser/AuthUser.entity";
+import {AuthUserJwtRefreshToken} from "../authUser/AuthUserJwtRefreshToken.entity";
 import {JwtAuthStrategy} from "../strategy/jwtAuth.startegy";
-import {AuthModule} from "../auth/auth.module";
-import {AuthUser} from "../auth-user/auth-user.entity";
-import {AuthUserJwtRefreshToken} from "../auth-user/auth-user-jwt-refresh-token.entity";
-import {AuthUserModule} from "../auth-user/auth-user.module";
-import {RsaKeyModule} from "../rsa-key/rsa-key.module";
-import {RsaKey} from "../rsa-key/rsa-key.entity";
-
 
 
 @Module({

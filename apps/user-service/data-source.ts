@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 import * as dotenv from 'dotenv';
 import { BaseUser } from './src/users/baseUser/BaseUser';
-import { AdminUser } from './src/users/admin/AdminUser';
+import { AdminUserEntity } from './src/users/admin/AdminUser.entity';
 
 // Вибір env-файлу через змінну середовища
 const envFile = process.env.ENV_PATH || '.env';
@@ -15,7 +15,7 @@ export default new DataSource({
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    entities: [BaseUser, AdminUser],
+    entities: [BaseUser, AdminUserEntity],
     migrations: ['dist/apps/user-service/migrations/*.js'],
     synchronize: false,
 });

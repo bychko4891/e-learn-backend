@@ -1,19 +1,19 @@
 import { Module } from '@nestjs/common';
 import {ConfigModule, ConfigService} from '@nestjs/config';
 import {TypeOrmModule} from "@nestjs/typeorm";
-import {BaseUser} from "../users/baseUser/BaseUser";
-import {BaseUserModule} from "../users/baseUser/BaseUserModule";
-import {AdminUser} from "../users/admin/AdminUser";
 import {CommonModule} from "@app/common";
-import {HttpModule} from "@nestjs/axios";
+// import {HttpModule} from "@nestjs/axios";
 import {PassportModule} from "@nestjs/passport";
-import {JwtStrategy} from "../auth/jwt.strategy";
+import {JwtStrategy} from "@app/common/strategy/jwt.strategy";
+import {BaseUserModule} from "../users/baseUser/base-user.module";
+import {BaseUser} from "../users/baseUser/base-user.entity";
+import {AdminUser} from "../users/admin/admin-user.entity";
 
 @Module({
     imports: [
         BaseUserModule,
         PassportModule,
-        HttpModule, // Надає HttpService для ін'єкції
+        // HttpModule, // Надає HttpService для ін'єкції
         CommonModule,
         ConfigModule.forRoot({
             isGlobal: true,
@@ -24,14 +24,15 @@ import {JwtStrategy} from "../auth/jwt.strategy";
                 type: 'postgres',
                 host: config.get<string>('DB_HOST'),
                 port: config.get<number>('DB_PORT'),
-                username: config.get<string>('DB_USERNAME'),
-                password: config.get<string>('DB_PASSWORD'),
-                database: config.get<string>('DB_NAME'),
+                username: config.get<string>('DB_USERNAME_USER'),
+                password: config.get<string>('DB_PASSWORD_USER'),
+                database: config.get<string>('DB_NAME_USER'),
                 entities: [BaseUser, AdminUser],
                 migrations: ['dist/migrations/*.js'],
                 cli: {
                     migrationsDir: 'src/migrations',
                 },
+                // synchronize: false,
                 synchronize: true,
             }),
 
